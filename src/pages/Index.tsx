@@ -16,11 +16,11 @@ const Index = () => {
           Gerencie as avaliações dos alunos de forma simples e eficiente
         </p>
         <Button 
-          onClick={() => navigate("/avaliacoes")}
+          onClick={() => navigate("/dashboard")}
           size="lg"
           className="text-lg px-8 py-3"
         >
-          Aceder às Avaliações
+          Entrar no Sistema
         </Button>
       </div>
     </div>

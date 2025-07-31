@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { MainLayout } from "@/components/layout/MainLayout";
 import { FiltrosAvaliacoes } from "@/components/avaliacoes/FiltrosAvaliacoes";
 import { GrelhaAvaliacoes } from "@/components/avaliacoes/GrelhaAvaliacoes";
 import { Turma, Disciplina, Aluno, AvaliacaoRow } from "@/types/avaliacoes";
@@ -11,6 +12,9 @@ const turmasExample: Turma[] = [
   { id: "1", nome: "9ºA", ano: "2024" },
   { id: "2", nome: "9ºB", ano: "2024" },
   { id: "3", nome: "10ºA", ano: "2024" },
+  { id: "4", nome: "10ºB", ano: "2024" },
+  { id: "5", nome: "11ºA", ano: "2024" },
+  { id: "6", nome: "12ºA", ano: "2024" },
 ];
 
 const disciplinasExample: Disciplina[] = [
@@ -18,6 +22,8 @@ const disciplinasExample: Disciplina[] = [
   { id: "2", nome: "Português", codigo: "PORT" },
   { id: "3", nome: "História", codigo: "HIST" },
   { id: "4", nome: "Geografia", codigo: "GEO" },
+  { id: "5", nome: "Ciências", codigo: "CIEN" },
+  { id: "6", nome: "Educação Física", codigo: "EDF" },
 ];
 
 const alunosExample: Aluno[] = [
@@ -26,6 +32,9 @@ const alunosExample: Aluno[] = [
   { id: "3", nome: "Carla Oliveira", numero: 3 },
   { id: "4", nome: "Daniel Costa", numero: 4 },
   { id: "5", nome: "Eva Martins", numero: 5 },
+  { id: "6", nome: "Fernando Lima", numero: 6 },
+  { id: "7", nome: "Gabriela Rocha", numero: 7 },
+  { id: "8", nome: "Hugo Pereira", numero: 8 },
 ];
 
 const Avaliacoes = () => {
@@ -77,12 +86,14 @@ const Avaliacoes = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background p-6">
-      <div className="max-w-7xl mx-auto space-y-6">
+    <MainLayout 
+      title="Gestão de Avaliações" 
+      breadcrumbs={[{ label: "Avaliações" }]}
+    >
+      <div className="space-y-6">
         <div className="flex justify-between items-center">
-          <h1 className="text-3xl font-bold">Gestão de Avaliações</h1>
           {turmaSelecionada && disciplinaSelecionada && (
-            <Button onClick={handleSave} className="flex items-center gap-2">
+            <Button onClick={handleSave} className="flex items-center gap-2 ml-auto">
               <Save className="h-4 w-4" />
               Guardar Avaliações
             </Button>
@@ -109,7 +120,7 @@ const Avaliacoes = () => {
           </div>
         )}
       </div>
-    </div>
+    </MainLayout>
   );
 };
 
